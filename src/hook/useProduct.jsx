@@ -1,10 +1,9 @@
 import { useContext } from 'react'
 import { callAPI } from '../domain/api'
-import toast from 'react-hot-toast'
 import { ProductContext } from '../context/ProductContext'
 
-const useAccountPassword = () => {
-  const { setProducts, setLoading } = useContext(ProductContext)
+const useProduct = () => {
+  const { setProducts, setLoading, setProduct } = useContext(ProductContext)
 
   const getProducts = async () => {
     setLoading(true)
@@ -20,24 +19,24 @@ const useAccountPassword = () => {
     }
   }
 
-  const getProduct = async id => {
+  const getProduct = async productId => {
+    setLoading(true)
     try {
       const res = await callAPI({
-        endpoint: `/password/${id}`,
+        endpoint: `/products/${productId}`,
         method: 'GET',
       })
-
-      setDetailAccount(res)
+      setProduct(res)
     } catch (error) {
-      toast.error(error.message)
+      setErrorMsg(error.message)
+    } finally {
+      setLoading(false)
     }
   }
   return {
-    savePassword,
     getProducts,
-    deleteAccount,
-    getAccount,
+    getProduct,
   }
 }
 
-export default useAccountPassword
+export default useProduct
