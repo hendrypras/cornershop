@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function index() {
-  return <div>index</div>;
-}
+const CartPage = () => {
+  return <div>cart</div>;
+};
+
+export default CartPage;
