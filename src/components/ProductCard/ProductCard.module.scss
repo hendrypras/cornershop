@@ -1,22 +1,65 @@
 @import '../../styles/base';
 
 .card {
-  width: 16rem;
+  width: 14rem;
   border-radius: 1rem !important;
+  height: max-content;
   .card__image {
     padding: 0.5rem;
-    padding-bottom: 0;
-    width: 16rem;
-    border-radius: 1rem;
+    width: 100%;
+    height: 10rem;
+    object-fit: contain;
+    border-bottom: 1px solid rgb(220, 212, 212);
+    cursor: pointer;
   }
   .card__content {
     @include displayFlex(column, center, start);
+    padding: 0 0.3rem;
     .card__name {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+    .card__category {
+      margin-top: 4px;
+      border-radius: 16px;
+      padding: 2px 14px;
+      background-color: #d6d3d3;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .card__rating {
+      @include displayFlex(row, start, center);
+      margin-top: 0.5rem;
+      gap: 2px;
+      width: 100%;
+      .card__icon__star {
+        width: 18px;
+        height: 18px;
+        color: #ffe500;
+      }
+      .card__count {
+        font-size: 14px;
+      }
     }
   }
   .card__footer {
     @include displayFlex(row, space-between, center);
+    margin-top: 12px;
+    padding: 0 0.3rem 0.5rem 0.3rem;
+    .card__price {
+      color: #000;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    .card__btn {
+      cursor: pointer;
+    }
   }
 }

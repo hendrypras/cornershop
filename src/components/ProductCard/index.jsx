@@ -1,25 +1,39 @@
-import React from "react";
-import { Card, CardMedia } from "@mui/material";
-import styles from "./ProductCard.module.scss";
-import { AddShoppingCart, Star } from "@mui/icons-material";
+import React from 'react'
+import { Card } from '@mui/material'
+import styles from './ProductCard.module.scss'
+import { AddShoppingCart, Star } from '@mui/icons-material'
 
-const ProductCard = () => {
+const ProductCard = ({ data, detailFunc, addToCart }) => {
+  const priceFormated = data?.price?.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  })
   return (
     <Card className={styles.card}>
-      <img src="https://via.placeholder.com/300x200/" className={styles.card__image} />
+      <div onClick={detailFunc}>
+        <img
+          src={data?.image}
+          className={styles.card__image}
+          alt="product-image"
+        />
+      </div>
       <div className={styles.card__content}>
-        <p className={styles.card__name}>Product Name</p>
-        <p>Category</p>
+        <h1 className={styles.card__name}>{data?.title}</h1>
+        <p className={styles.card__category}>{data?.category}</p>
         <div className={styles.card__rating}>
-          <Star /> <span>4.1</span> <span>(301)</span>
+          <Star className={styles.card__icon__star} />{' '}
+          <span>{data?.rating?.rate}</span>{' '}
+          <span className={styles.card__count}>({data?.rating?.count})</span>
         </div>
       </div>
       <div className={styles.card__footer}>
-        <p>$24.1</p>
-        <AddShoppingCart />
+        <p className={styles.card__price}>{priceFormated}</p>
+        <div className={styles.card__btn} onClick={addToCart}>
+          <AddShoppingCart />
+        </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard
