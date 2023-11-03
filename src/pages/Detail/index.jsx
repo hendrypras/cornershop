@@ -28,7 +28,6 @@ const DetailPage = () => {
     const sliced = products?.slice(0, 5);
     setProductsSlice(sliced);
   };
-  console.log(productsSlice);
 
   const isProductInCart = cart?.some((cart) => cart?.id === product?.id);
 
