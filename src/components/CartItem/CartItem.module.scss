@@ -1,0 +1,50 @@
+@import '../../styles/base';
+
+.cart {
+  width: 80%;
+  height: 5rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+  border: 1px solid $primary;
+  @include displayFlex(row, space-between);
+  .cart__left {
+    @include displayFlex(row, start);
+    gap: 1rem;
+    .cart__image {
+      border-radius: 15px;
+      width: 4rem;
+      height: 100%;
+    }
+    .cart__description {
+      .cart__name {
+        font-weight: 600;
+      }
+      .cart__category {
+        font-size: 0.75rem;
+        background-color: $accent;
+        width: fit-content;
+        border-radius: 1rem;
+        padding: 0 0.25rem;
+      }
+    }
+  }
+  .cart__counter {
+    border-radius: 2rem;
+    border: 1px solid $primary;
+    @include displayFlex;
+    gap: 1rem;
+    height: 2rem;
+    font-size: 1rem;
+    .counter_action {
+      background-color: transparent;
+      border: none;
+      border-radius: 100%;
+      color: black;
+      padding: 3px;
+    }
+  }
+
+  .cart__right {
+    @include displayFlex(row, end, center);
+  }
+}

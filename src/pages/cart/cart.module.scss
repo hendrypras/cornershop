@@ -1,1 +1,17 @@
-@import "../../styles/base";
+@import '../../styles/base';
+
+.cart_page {
+  max-width: 80rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+
+  .title {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  .item__container {
+    border: 1px solid gray;
+    width: 100%;
+    height: 90%;
+  }
+}
