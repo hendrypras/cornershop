@@ -1,15 +1,12 @@
-import React from 'react';
-import { Card, CardMedia } from '@mui/material';
-import styles from './ProductCard.module.scss';
-import { AddShoppingCart, Star } from '@mui/icons-material';
+import React from "react";
+import { Card, CardMedia } from "@mui/material";
+import styles from "./ProductCard.module.scss";
+import { AddShoppingCart, Star } from "@mui/icons-material";
 
 const ProductCard = () => {
   return (
     <Card className={styles.card}>
-      <img
-        src="https://via.placeholder.com/300x200/"
-        className={styles.card__image}
-      />
+      <img src="https://via.placeholder.com/300x200/" className={styles.card__image} />
       <div className={styles.card__content}>
         <p className={styles.card__name}>Product Name</p>
         <p>Category</p>
