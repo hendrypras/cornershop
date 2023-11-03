@@ -1,0 +1,47 @@
+@import '../../styles/base';
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  background-color: $background;
+  z-index: 10;
+  height: fit-content;
+  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  &__wrapper {
+    @include displayFlex(row, space-between);
+    gap: 0.5rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+    max-width: 80rem;
+    .navbar__logo {
+      @include displayFlex(row, start);
+      p {
+        @include title;
+        @include displayFlex();
+        color: $primary-text;
+        border-radius: 0.5rem;
+        border: 2px solid $secondary;
+        border-bottom-width: 4px;
+        border-right-width: 4px;
+        padding: 0.25rem 0.5rem;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    }
+    .navbar__right {
+      @include displayFlex();
+      gap: 0.5rem;
+      .navbar__avatar {
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  }
+}
