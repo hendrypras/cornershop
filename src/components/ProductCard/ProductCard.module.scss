@@ -1,0 +1,22 @@
+@import '../../styles/base';
+
+.card {
+  width: 16rem;
+  border-radius: 1rem !important;
+  .card__image {
+    padding: 0.5rem;
+    padding-bottom: 0;
+    width: 16rem;
+    border-radius: 1rem;
+  }
+  .card__content {
+    @include displayFlex(column, center, start);
+    .card__name {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+  .card__footer {
+    @include displayFlex(row, space-between, center);
+  }
+}
