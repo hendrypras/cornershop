@@ -1,1 +1,78 @@
 @import "../../styles/base";
+
+.detailPage {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 50px;
+  @include breakpoint(md) {
+    padding: 0 20px;
+  }
+}
+
+.detailProduct {
+  @include displayFlex(row, center, flex-start);
+  padding: 100px 0;
+  gap: 30px;
+  @include breakpoint(sm) {
+    @include displayFlex(row, center, center);
+    flex-direction: column;
+  }
+  .detailProduct__imgContainer {
+    position: sticky;
+    top: 100px;
+    @include breakpoint(sm) {
+      position: static;
+    }
+    .detailProduct__img {
+      max-width: 300px;
+    }
+  }
+  .detailProduct__desc {
+    h1 {
+      color: $primary-text;
+    }
+  }
+  .detailProduct__rates {
+    @include displayFlex(row, flex-start, center);
+    gap: 5px;
+    margin: 10px 0;
+    span {
+      font-weight: bold;
+    }
+    label {
+      color: gray;
+    }
+    .detailProduct__ic {
+      color: rgb(181, 181, 21);
+    }
+  }
+  .detailPage__categories {
+    @include displayFlex(row, flex-start, center);
+    margin: 10px 0;
+    button {
+      background-color: rgb(219, 219, 219);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+  }
+  .btnContainer {
+    margin: 20px 0;
+  }
+  .btn {
+    cursor: pointer;
+    color: $primary-text;
+    background-color: $accent;
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
