@@ -22,26 +22,36 @@ const useCart = () => {
   const addToCart = async data => {
     setLoading(true)
     try {
-      const { productId, quantity, ...rest } = data
+      const { productId, quantity, product } = data
       const findProduct = await callAPI({
         endpoint: `/cart?productId=${productId}`,
         method: 'GET',
         baseUrl,
       })
-      if (findProduct) {
-        const newQty = quantity + findProduct?.quantity
-        const newData = { quantity: newQty, rest }
+
+      if (findProduct && findProduct.length > 0) {
+        const cartFilter = findProduct?.filter(
+          item => item.productId === productId
+        )
+        const newQty = quantity + (cartFilter[0] ? cartFilter[0].quantity : 0)
+        const newPrice = newQty * cartFilter[0]?.product?.price
+        const newData = {
+          quantity: newQty,
+          productId,
+          price: newPrice,
+          product,
+        }
         await callAPI({
-          endpoint: `/cart/${findProduct?.id}`,
+          endpoint: `/cart/${cartFilter[0]?.id}`,
+          method: 'PUT',
           baseUrl,
-          method: 'PATH',
-          newData,
+          data: newData,
         })
       } else {
         await callAPI({
           endpoint: '/cart',
-          baseUrl,
           method: 'POST',
+          baseUrl,
           data,
         })
       }

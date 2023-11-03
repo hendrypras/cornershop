@@ -27,6 +27,7 @@ const HomePage = () => {
           {products?.map(val => {
             const dataForCart = {
               productId: val?.id,
+              product: val,
               quantity: 1,
               price: val?.price,
             }
